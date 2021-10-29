@@ -2,7 +2,6 @@ package inventory
 
 type Inventory struct {
 	MaxCapacity int    `json:maxCapacity`
-	SpaceFree   int    `json:spaceFree`
 	Item        []Item `json:item`
 }
 
@@ -12,6 +11,9 @@ type Item struct {
 }
 
 func (i Inventory) addItem(id int, name string) {
-	newItem := Item{Id: id, Name: name}
-	i.Item = append(i.Item, newItem)
+	i.Item = append(i.Item, Item{Id: id, Name: name})
+}
+
+func (i Inventory) getFreeSpace() int {
+	return (len(i.Item) - i.MaxCapacity)
 }
