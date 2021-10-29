@@ -1,13 +1,13 @@
 package inventory
 
 type Inventory struct {
-	MaxCapacity int    `json:maxCapacity`
-	Item        []Item `json:item`
+	MaxCapacity int    `json:"maxCapacity"`
+	Item        []Item `json:"item"`
 }
 
 type Item struct {
-	Id   int    `json:id`
-	Name string `json:name`
+	Id   int    `json:"id"`
+	Name string `json:"name"`
 }
 
 func (i Inventory) addItem(id int, name string) {
